@@ -73,7 +73,7 @@ clear
 echo -e "${GREEN}Initialising MongoDB users and databases${NC}"
 echo -e "Copy and paste the following for creating the admin user:"
 echo -e ""
-echo -e "db.createUser({ user: 'admin', pwd: '$RANDOM1', roles: [ { role: \"userAdminAnyDatabase\", db: \"admin\" } ] });"
+echo -e "db.createUser({ user: 'admin', pwd: '$RANDOM1', roles: [ { role: \"root\", db: \"admin\" } ] });"
 echo -e "quit()"
 echo -e ""
 read -p "Press any key to continue... " -n1 -s
@@ -87,7 +87,7 @@ echo -e " "
 echo -e "Copy and paste the following for creating the app user and database:"
 echo -e ""
 echo -e "use $DATABASENAME"
-echo -e "db.createUser({ user: 'app_admin', pwd: '$RANDOM2', roles: [ { role: \"readWrite\", db: \"posts\" },{ role: \"readWrite\", db: \"locations\" } ] });"
+echo -e "db.createUser({ user: 'app_admin', pwd: '$RANDOM2', roles: [ { role: \"dbOwner\", db: \"posts\" },{ role: \"readWrite\", db: \"locations\" } ] });"
 echo -e "quit()"
 echo -e ""
 read -p "Press any key to continue... " -n1 -s
